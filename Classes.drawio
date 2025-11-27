@@ -1,38 +1,50 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="28.2.9">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.1.1">
   <diagram name="Page-1" id="H05haCIME4056axfYjIs">
-    <mxGraphModel dx="1320" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="608" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-1" value="Financial Stress&lt;div&gt;Family Conflicts&lt;/div&gt;&lt;div&gt;House hold RESPOLIBITIES&lt;/div&gt;&lt;div&gt;SEXUAL DISSATISFACTION&lt;/div&gt;&lt;div&gt;EMOTIONAL DISTANCE&lt;/div&gt;&lt;div&gt;LOSS OF PERSONAL SPACE&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="70" y="50" width="190" height="190" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="Financial Stress&lt;div&gt;&lt;br&gt;&lt;div&gt;Family Conflicts&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;House hold RESPOLIBITIES&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;SEXUAL DISSATISFACTION&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;EMOTIONAL DISTANCE&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;LOSS OF PERSONAL SPACE&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="30" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-2" value="Married" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="120" y="60" width="90" height="30" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Married" vertex="1">
+          <mxGeometry height="30" width="90" x="120" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-4" value="&lt;div&gt;Not sure they choosing matching path&lt;/div&gt;&lt;div&gt;Confidence issues&lt;/div&gt;&lt;div&gt;Relationship challengers(Breakup)&lt;/div&gt;&lt;div&gt;Stress about future&lt;/div&gt;&lt;div&gt;Physical and lifestyle issues&lt;/div&gt;&lt;div&gt;Lack of exercise&amp;nbsp;&lt;/div&gt;&lt;div&gt;poor diet planning&lt;/div&gt;&lt;div&gt;Love and Dating stress&lt;/div&gt;&lt;div&gt;Difficult to manage time&lt;/div&gt;&lt;div&gt;Overuse on phone and social media&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
-          <mxGeometry x="310" y="50" width="280" height="280" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-4" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;div&gt;Not sure they choosing matching path&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Confidence issues&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Relationship challengers(Breakup)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Stress about future&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Physical and lifestyle issues&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Lack of exercise&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;poor diet planning&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Love and Dating stress&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Difficult to manage time&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Overuse on phone and social media&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="360" width="360" x="275" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-5" value="20-25 COMMON" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="370" y="70" width="100" height="30" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="20-25 COMMON" vertex="1">
+          <mxGeometry height="30" width="100" x="390" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-6" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Friendship changes&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Conflicts due to different life path&lt;/div&gt;&lt;div&gt;Overthinking and emotional preasure&lt;/div&gt;&lt;div&gt;Trusting wrong persons&lt;/div&gt;&lt;div&gt;Self care and travelling expenses&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
-          <mxGeometry x="620" y="280" width="210" height="210" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-6" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Friendship changes&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Conflicts due to different life path&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Overthinking and emotional preasure&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Trusting wrong persons&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Self care and travelling expenses&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="200" x="640" y="210" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-7" value="20-25 FEMALE" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="665" y="300" width="100" height="30" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="20-25 FEMALE" vertex="1">
+          <mxGeometry height="30" width="100" x="690" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-8" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Contribute to family finances&lt;div&gt;&lt;div&gt;Drinking and Smoking expenses&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
-          <mxGeometry x="620" y="30" width="190" height="190" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-8" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Contribute to family finances&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;Drinking and Smoking expenses&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="160" x="660" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-9" value="20-25 MALE" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="665" y="40" width="100" height="30" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="20-25 MALE" vertex="1">
+          <mxGeometry height="30" width="100" x="700" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-10" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="30" y="300" width="220" height="220" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-10" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="Salary not matching rising expenses&lt;div&gt;Struggling with rent, loans, transport costs&lt;/div&gt;&lt;div&gt;Pressure to be financially independent&lt;/div&gt;&lt;div&gt;Bringing work home (mentally or physically)&lt;/div&gt;&lt;div&gt;Less time for hobbies, friends, or relationship&lt;/div&gt;&lt;div&gt;Limited Career Growth&lt;/div&gt;&lt;div&gt;Fear of making mistakes&lt;/div&gt;&lt;div&gt;Struggle moving from junior to mid-level positions&lt;/div&gt;&lt;div&gt;Lack of appreciation&lt;/div&gt;&lt;div&gt;Pressure to Settle Down (Marriage/Family)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="280" width="280" x="30" y="380" as="geometry" />
         </mxCell>
-        <mxCell id="J2-xnF3lpsn9VxjAoMCv-11" value="25-30 FEMALE" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="90" y="310" width="100" height="30" as="geometry" />
+        <mxCell id="J2-xnF3lpsn9VxjAoMCv-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="25-30 COMMON" vertex="1">
+          <mxGeometry height="30" width="100" x="100" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="RIgyzQ-9RTPZZQngQ9HV-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;li data-start=&quot;731&quot; data-end=&quot;788&quot;&gt;&lt;p data-start=&quot;733&quot; data-end=&quot;788&quot;&gt;Harassment during commuting (buses, trains, streets).&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;731&quot; data-end=&quot;788&quot;&gt;&lt;p data-start=&quot;733&quot; data-end=&quot;788&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Feeling unsafe working late hours.&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;div&gt;&lt;li data-start=&quot;1232&quot; data-end=&quot;1287&quot;&gt;&lt;p data-start=&quot;1234&quot; data-end=&quot;1287&quot;&gt;Breakups or fear of not finding a suitable partner.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;1288&quot; data-end=&quot;1336&quot;&gt;&lt;p data-start=&quot;1290&quot; data-end=&quot;1336&quot;&gt;Culture pressuring women to marry “before 30.”&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;1288&quot; data-end=&quot;1336&quot;&gt;&lt;p data-start=&quot;1290&quot; data-end=&quot;1336&quot;&gt;Pressure to look perfect&lt;/p&gt;&lt;/li&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="240" x="335" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="RIgyzQ-9RTPZZQngQ9HV-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="25-30 FEMALE" vertex="1">
+          <mxGeometry height="30" width="100" x="390" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="RIgyzQ-9RTPZZQngQ9HV-3" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;li data-start=&quot;731&quot; data-end=&quot;788&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Expected to earn well and support family.&lt;/span&gt;&lt;/li&gt;&lt;li data-start=&quot;342&quot; data-end=&quot;407&quot;&gt;&lt;p data-start=&quot;344&quot; data-end=&quot;407&quot;&gt;Pressure to buy a vehicle, build a house, or save for marriage.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;342&quot; data-end=&quot;407&quot;&gt;&lt;p data-start=&quot;344&quot; data-end=&quot;407&quot;&gt;Need to “settle in life” before 30.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;342&quot; data-end=&quot;407&quot;&gt;&lt;p data-start=&quot;344&quot; data-end=&quot;407&quot;&gt;Less time for hobbies or rest.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;342&quot; data-end=&quot;407&quot;&gt;&lt;p data-start=&quot;344&quot; data-end=&quot;407&quot;&gt;Breakups due to career or family pressure&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;342&quot; data-end=&quot;407&quot;&gt;&lt;p data-start=&quot;344&quot; data-end=&quot;407&quot;&gt;Society expects men to “be strong” and not show weakness.&lt;/p&gt;&lt;/li&gt;&lt;li data-start=&quot;342&quot; data-end=&quot;407&quot;&gt;&lt;p data-start=&quot;344&quot; data-end=&quot;407&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/li&gt;" vertex="1">
+          <mxGeometry height="300" width="300" x="590" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="RIgyzQ-9RTPZZQngQ9HV-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="25-30 MALE" vertex="1">
+          <mxGeometry height="30" width="100" x="660" y="420" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
