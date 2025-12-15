@@ -1,0 +1,119 @@
+package gui;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class FutureProblemAnalyzer {
+
+    private final List<Problem> allProblems = new ArrayList<>();
+
+
+    private static final double ONE_PERSON_LIVING_COST_LKR = 25000.0;
+    private static final double DEPENDENT_SUPPORT_PERCENTAGE = 0.25;
+
+    private static final Map<String, Double> MONTHLY_COSTS_LKR = Map.of(
+            "Heart Attacks", 2500.0,
+            "Asthma", 3000.0,
+            "Diabetes", 10000.0,
+            "Chronic Kidney Disease", 15000.0,
+            "Mental Health Disorders", 7000.0,
+            "Osteoarthritis", 4000.0,
+            "HIV", 20000.0
+    );
+
+    public static class ExtendedAnalysisResult {
+        public Set<String> potentialLifeProblems = new HashSet<>();
+        public Set<String> medicalCharges = new HashSet<>();
+        public Set<String> workFailures = new HashSet<>();
+        public double totalMonthlyMedicalCostLKR = 0.0;
+        public double totalMonthlyLivingCostLKR = 0.0;
+        public double familySupportCostLKR = 0.0;
+        public double totalOverallExpenseLKR = 0.0;
+    }
+
+    private static class Problem {
+        private String ageGroup, genderCategory, maritalStatus, description;
+        public Problem(String a, String g, String m, String d) { ageGroup=a; genderCategory=g; maritalStatus=m; description=d; }
+        public String getAgeGroup() { return ageGroup; }
+        public String getGenderCategory() { return genderCategory; }
+        public String getMaritalStatus() { return maritalStatus; }
+        public String getDescription() { return description; }
+    }
+
+    public FutureProblemAnalyzer() { initializeData(); }
+
+    private String getAgeGroup(int age) {
+        if (age >= 20 && age <= 25) return "20-25";
+        else if (age >= 26 && age <= 35) return "26-35";
+        else return "ANY";
+    }
+
+    public ExtendedAnalysisResult getPotentialProblems(int age, String gender, String maritalStatus, int siblingsCount, String parentsStatus, List<String> medicalConditions) {
+        ExtendedAnalysisResult result = new ExtendedAnalysisResult();
+        String ageGroup = getAgeGroup(age);
+        String genderUpper = gender.toUpperCase();
+        String maritalStatusTitle = maritalStatus.substring(0, 1).toUpperCase() + maritalStatus.substring(1).toLowerCase();
+
+        List<Problem> relevantProblems = allProblems.stream()
+                .filter(p -> p.getMaritalStatus().equals(maritalStatusTitle))
+                .filter(p -> (p.getGenderCategory().equals("ACTOR") && p.getAgeGroup().equals("ANY")) ||
+                        (p.getAgeGroup().equals(ageGroup) && (p.getGenderCategory().equals(genderUpper) || p.getGenderCategory().equals("COMMON"))))
+                .collect(Collectors.toList());
+
+        for (Problem p : relevantProblems) result.potentialLifeProblems.add(p.getDescription());
+
+        analyzeMedicalImpact(medicalConditions, result);
+        result.totalMonthlyMedicalCostLKR = calculateMonthlyMedicalCost(medicalConditions);
+        result.totalMonthlyLivingCostLKR = ONE_PERSON_LIVING_COST_LKR;
+        result.familySupportCostLKR = calculateFamilySupport(siblingsCount, parentsStatus);
+        result.totalOverallExpenseLKR = result.totalMonthlyMedicalCostLKR + result.totalMonthlyLivingCostLKR + result.familySupportCostLKR;
+
+        return result;
+    }
+
+    private double calculateFamilySupport(int siblingsCount, String parentsStatus) {
+        double costPerDependent = ONE_PERSON_LIVING_COST_LKR * DEPENDENT_SUPPORT_PERCENTAGE;
+        double totalSupport = (siblingsCount * costPerDependent);
+        if (parentsStatus.equalsIgnoreCase("Both Alive")) totalSupport += (2 * costPerDependent);
+        else if (parentsStatus.equalsIgnoreCase("One Alive")) totalSupport += (1 * costPerDependent);
+        return totalSupport;
+    }
+
+    private double calculateMonthlyMedicalCost(List<String> conditions) {
+        double totalCost = 0.0;
+        for (String condition : conditions) totalCost += MONTHLY_COSTS_LKR.getOrDefault(condition, 0.0);
+        return totalCost;
+    }
+
+    private void analyzeMedicalImpact(List<String> conditions, ExtendedAnalysisResult result) {
+        if (conditions.isEmpty()) return;
+        for (String condition : conditions) {
+            switch (condition) {
+                case "Heart Attacks": result.medicalCharges.add("Surgery, Stents, Lifelong meds"); result.workFailures.add("Sudden disability risk"); break;
+                case "Asthma": result.medicalCharges.add("Inhalers, Specialist visits"); result.workFailures.add("Dust/Physical sensitivity"); break;
+                case "Diabetes": result.medicalCharges.add("Insulin, Testing supplies"); result.workFailures.add("Fluctuating energy/focus"); break;
+                case "Chronic Kidney Disease": result.medicalCharges.add("Dialysis/Transplant"); result.workFailures.add("Rigid treatment schedule"); break;
+                case "Mental Health Disorders": result.medicalCharges.add("Therapy/Medication"); result.workFailures.add("Communication risks"); break;
+                case "Osteoarthritis": result.medicalCharges.add("Pain mgmt/Physio"); result.workFailures.add("Reduced mobility"); break;
+                case "HIV": result.medicalCharges.add("ART/Lab monitoring"); result.workFailures.add("Stamina issues"); break;
+            }
+        }
+    }
+
+    private void initializeData() {
+        addProblems("20-25", "COMMON", "Unmarried", List.of("Confidence issues", "Relationship challenges", "Future stress", "Lifestyle issues", "Phone addiction"));
+        addProblems("20-25", "MALE", "Unmarried", List.of("Family finance burden", "Drinking/Smoking expenses"));
+        addProblems("20-25", "FEMALE", "Unmarried", List.of("Life path conflicts", "Emotional pressure", "Trust issues", "Traveling expenses"));
+        addProblems("26-35", "COMMON", "Unmarried", List.of("Salary/Living gap", "Rent costs", "Work/Life struggle", "Career stagnation", "Marriage Pressure"));
+        addProblems("26-35", "MALE", "Unmarried", List.of("Support family", "House/Vehicle pressure", "Settle before 30", "No rest"));
+        addProblems("26-35", "FEMALE", "Unmarried", List.of("Commuting safety", "Late work risks", "Marriage pressure", "Appearance pressure"));
+        addProblems("ANY", "ACTOR", "Married", List.of("Financial Stress", "Family Conflicts", "Household chores", "Emotional distance"));
+        addProblems("20-25", "COMMON", "Married", List.of("Future stress", "Lifestyle issues", "Diet planning", "Time mgmt"));
+        addProblems("20-25", "MALE", "Married", List.of("Finance burden", "Drinking/Smoking", "Child costs"));
+        addProblems("20-25", "FEMALE", "Married", List.of("Life path conflicts", "Self care cost", "Childbirth process"));
+    }
+
+    private void addProblems(String a, String g, String m, List<String> d) {
+        for (String desc : d) allProblems.add(new Problem(a, g, m, desc));
+    }
+}
