@@ -1,0 +1,62 @@
+package gui;
+
+import gui.components.DemographicInputPanel;
+import javax.swing.*;
+import java.awt.*;
+
+public class ModularAnalysisFrame extends JFrame {
+
+    public ModularAnalysisFrame() {
+
+        setTitle("Navoda Construction - Executive Reporting System");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(750, 850);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+
+        JPanel headerPanel = new JPanel();
+        headerPanel.setBackground(new Color(44, 62, 80));
+        headerPanel.setPreferredSize(new Dimension(getWidth(), 80));
+        headerPanel.setLayout(new BorderLayout());
+
+        JLabel titleLabel = new JLabel("Director Board Analysis System", JLabel.CENTER);
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 5, 0));
+
+        JLabel subTitleLabel = new JLabel("Candidate Risk & Financial Assessment", JLabel.CENTER);
+        subTitleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        subTitleLabel.setForeground(new Color(189, 195, 199));
+        subTitleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
+
+        headerPanel.add(titleLabel, BorderLayout.NORTH);
+        headerPanel.add(subTitleLabel, BorderLayout.CENTER);
+        add(headerPanel, BorderLayout.NORTH);
+
+
+        DemographicInputPanel formPanel = new DemographicInputPanel();
+        JScrollPane scrollPane = new JScrollPane(formPanel);
+        scrollPane.setBorder(null);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        add(scrollPane, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+
+        }
+
+        SwingUtilities.invokeLater(() -> {
+            new ModularAnalysisFrame().setVisible(true);
+        });
+    }
+}
