@@ -1,0 +1,239 @@
+package gui.components;
+
+import gui.FutureProblemAnalyzer;
+import gui.FutureProblemAnalyzer.ExtendedAnalysisResult;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DemographicInputPanel extends JPanel {
+
+    private final FutureProblemAnalyzer analyzer;
+
+
+    private final JTextField nameField;
+    private final JComboBox<String> ageDropdown;
+    private final JComboBox<String> genderDropdown;
+    private final JComboBox<String> maritalStatusDropdown;
+    private final JComboBox<String> siblingsDropdown;
+    private final JComboBox<String> parentsStatusDropdown;
+
+    private final JTextArea resultArea;
+    private final JButton analyzeButton;
+    private final JButton printButton;
+
+    private final List<JCheckBox> medicalCheckboxes = new ArrayList<>();
+    private final String[] medicalConditions = {
+            "Heart Attacks", "Asthma", "Diabetes", "Chronic Kidney Disease",
+            "Mental Health Disorders", "Osteoarthritis", "HIV"
+    };
+
+    public DemographicInputPanel() {
+        this.analyzer = new FutureProblemAnalyzer();
+
+        setLayout(new BorderLayout(20, 20));
+        setBackground(Color.WHITE);
+        setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
+
+        JPanel centerContainer = new JPanel();
+        centerContainer.setLayout(new BoxLayout(centerContainer, BoxLayout.Y_AXIS));
+        centerContainer.setBackground(Color.WHITE);
+
+
+        JPanel demoPanel = createStyledPanel("1. Candidate Demographics");
+        demoPanel.setLayout(new GridBagLayout());
+
+        nameField = new JTextField(20);
+        String[] ages = new String[16]; for (int i=0; i<16; i++) ages[i] = String.valueOf(20+i);
+        ageDropdown = new JComboBox<>(ages);
+        genderDropdown = new JComboBox<>(new String[]{"Male", "Female"});
+        maritalStatusDropdown = new JComboBox<>(new String[]{"Unmarried", "Married"});
+        siblingsDropdown = new JComboBox<>(new String[]{"0", "1", "2", "3", "4", "5+"});
+        parentsStatusDropdown = new JComboBox<>(new String[]{"Both Alive", "One Alive", "None Alive"});
+
+
+        addFormRow(demoPanel, "Full Name:", nameField, 0);
+        addFormRow(demoPanel, "Age:", ageDropdown, 1);
+        addFormRow(demoPanel, "Gender:", genderDropdown, 2);
+        addFormRow(demoPanel, "Marital Status:", maritalStatusDropdown, 3);
+        addFormRow(demoPanel, "Siblings Count:", siblingsDropdown, 4);
+        addFormRow(demoPanel, "Parents Status:", parentsStatusDropdown, 5);
+
+        centerContainer.add(demoPanel);
+        centerContainer.add(Box.createVerticalStrut(15));
+
+
+        JPanel medicalPanel = createStyledPanel("2. Medical History (Risk Factors)");
+        medicalPanel.setLayout(new GridLayout(0, 3, 10, 10));
+        for (String condition : medicalConditions) {
+            JCheckBox cb = new JCheckBox(condition);
+            cb.setBackground(Color.WHITE);
+            cb.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+            medicalCheckboxes.add(cb);
+            medicalPanel.add(cb);
+        }
+        centerContainer.add(medicalPanel);
+        centerContainer.add(Box.createVerticalStrut(20));
+
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
+        buttonPanel.setBackground(Color.WHITE);
+
+        analyzeButton = createStyledButton("Generate Board Report", new Color(41, 128, 185));
+        printButton = createStyledButton("Print / Save PDF", new Color(39, 174, 96));
+        printButton.setEnabled(false);
+
+        buttonPanel.add(analyzeButton);
+        buttonPanel.add(printButton);
+        centerContainer.add(buttonPanel);
+        centerContainer.add(Box.createVerticalStrut(20));
+
+
+        resultArea = new JTextArea(18, 50);
+        resultArea.setEditable(false);
+        resultArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        resultArea.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+
+        JScrollPane scrollPane = new JScrollPane(resultArea);
+        scrollPane.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
+        TitledBorder outputBorder = BorderFactory.createTitledBorder("3. Confidential Analysis Output");
+        outputBorder.setTitleFont(new Font("Segoe UI", Font.BOLD, 12));
+        scrollPane.setBorder(outputBorder);
+
+
+        analyzeButton.addActionListener(e -> runAnalysis());
+        printButton.addActionListener(e -> printAnalysis());
+
+
+        add(centerContainer, BorderLayout.NORTH);
+        add(scrollPane, BorderLayout.CENTER);
+    }
+
+
+
+    private JPanel createStyledPanel(String title) {
+        JPanel p = new JPanel();
+        p.setBackground(Color.WHITE);
+        TitledBorder border = BorderFactory.createTitledBorder(
+                BorderFactory.createLineBorder(new Color(189, 195, 199)), title);
+        border.setTitleFont(new Font("Segoe UI", Font.BOLD, 14));
+        border.setTitleColor(new Color(44, 62, 80));
+        p.setBorder(border);
+        return p;
+    }
+
+    private JButton createStyledButton(String text, Color bg) {
+        JButton b = new JButton(text);
+        b.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        b.setBackground(bg);
+        b.setForeground(Color.WHITE);
+        b.setFocusPainted(false);
+        b.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        b.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        return b;
+    }
+
+    private void addFormRow(JPanel panel, String labelText, JComponent field, int row) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 10, 5, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        JLabel label = new JLabel(labelText);
+        label.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+
+        gbc.gridx = 0; gbc.gridy = row; gbc.weightx = 0.3;
+        panel.add(label, gbc);
+
+        gbc.gridx = 1; gbc.gridy = row; gbc.weightx = 0.7;
+        field.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        if(field instanceof JTextField) {
+
+            ((JTextField)field).setMargin(new Insets(2, 4, 2, 4));
+        }
+        panel.add(field, gbc);
+    }
+
+
+
+    private void runAnalysis() {
+        try {
+            String name = nameField.getText().trim();
+            if (name.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please enter the candidate's name.", "Input Required", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+
+            int age = Integer.parseInt((String) ageDropdown.getSelectedItem());
+            String gender = (String) genderDropdown.getSelectedItem();
+            String marital = (String) maritalStatusDropdown.getSelectedItem();
+            String sibStr = (String) siblingsDropdown.getSelectedItem();
+            int sibCount = sibStr.endsWith("+") ? 5 : Integer.parseInt(sibStr);
+            String parents = (String) parentsStatusDropdown.getSelectedItem();
+
+            List<String> conditions = new ArrayList<>();
+            for (JCheckBox cb : medicalCheckboxes) if (cb.isSelected()) conditions.add(cb.getText());
+
+
+            ExtendedAnalysisResult res = analyzer.getPotentialProblems(age, gender, marital, sibCount, parents, conditions);
+
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("====================================================================\n");
+            sb.append("             CONFIDENTIAL DIRECTOR BOARD REPORT             \n");
+            sb.append("             NAVODA CONSTRUCTION - HR DEPARTMENT            \n");
+            sb.append("====================================================================\n");
+            sb.append("REPORT DATE: ").append(LocalDate.now()).append("\n\n");
+
+            sb.append(">> SECTION 1: CANDIDATE PROFILE\n");
+            sb.append("   ---------------------------------------------------------\n");
+            sb.append(String.format("   Name: %-30s | Age: %s\n", name.toUpperCase(), age));
+            sb.append(String.format("   Gender: %-28s | Status: %s\n", gender, marital));
+            sb.append(String.format("   Family: %s Sibling(s), Parents: %s\n", sibStr, parents));
+            sb.append("   Medical History: ").append(conditions.isEmpty() ? "None Declared" : String.join(", ", conditions)).append("\n\n");
+
+            sb.append(">> SECTION 2: FINANCIAL RISK ASSESSMENT (MONTHLY)\n");
+            sb.append("   ---------------------------------------------------------\n");
+            sb.append(String.format("   1. Base Living Allowance:      LKR %,15.2f\n", res.totalMonthlyLivingCostLKR));
+            sb.append(String.format("   2. Est. Dependent Support:     LKR %,15.2f\n", res.familySupportCostLKR));
+            sb.append(String.format("   3. Est. Medical Burden:        LKR %,15.2f\n", res.totalMonthlyMedicalCostLKR));
+            sb.append("                                  ------------------\n");
+            sb.append(String.format("   TOTAL MONTHLY FINANCIAL LOAD:  LKR %,15.2f\n", res.totalOverallExpenseLKR));
+            sb.append("   ---------------------------------------------------------\n\n");
+
+            sb.append(">> SECTION 3: BEHAVIORAL & SOCIAL RISK FACTORS\n");
+            if (res.potentialLifeProblems.isEmpty()) sb.append("   [INFO] No significant demographic risks identified.\n");
+            else for (String p : res.potentialLifeProblems) sb.append("   [-] ").append(p).append("\n");
+            sb.append("\n");
+
+            sb.append(">> SECTION 4: WORKPLACE PERFORMANCE RISKS (MEDICAL)\n");
+            if (res.workFailures.isEmpty()) sb.append("   [INFO] No medical performance risks identified.\n");
+            else for (String p : res.workFailures) sb.append("   [!] ").append(p).append("\n");
+
+            sb.append("\n\n");
+            sb.append("____________________________          ____________________________\n");
+            sb.append("   HR Manager Signature                    Director Signature     \n");
+
+            resultArea.setText(sb.toString());
+            resultArea.setCaretPosition(0);
+            printButton.setEnabled(true);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+        }
+    }
+
+    private void printAnalysis() {
+        try {
+            boolean complete = resultArea.print(new java.text.MessageFormat("Navoda Construction - Confidential Board Report"),
+                    new java.text.MessageFormat("Page {0}"));
+            if (complete) JOptionPane.showMessageDialog(this, "Document sent to printer successfully.");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Print Error: " + ex.getMessage());
+        }
+    }
+}
